@@ -1,11 +1,13 @@
 import play from "../../assets/play.svg";
 import reset from "../../assets/reset.svg";
 import { useSelector, useDispatch } from "react-redux";
-import { startChrono, setUpChrono, resetChrono } from "../../features/chrono";
+import { startChrono, resetChrono } from "../../features/chrono";
+import { RootState, AppDispatch } from "../../store"; // Typage du store
 
 export default function ToggleButton() {
-  const dispatch = useDispatch();
-  const chronoValues = useSelector((state: any) => state.chrono);
+  const dispatch = useDispatch<AppDispatch>(); // Typage du dispatch avec AppDispatch
+  const chronoValues = useSelector((state: RootState) => state.chrono); // Typage de l'état chrono
+
   function toggleChrono() {
     if (!chronoValues.isPlaying) {
       dispatch(startChrono());
@@ -13,6 +15,7 @@ export default function ToggleButton() {
       dispatch(resetChrono());
     }
   }
+
   return (
     <button
       onClick={toggleChrono}
