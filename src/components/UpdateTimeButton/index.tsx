@@ -1,17 +1,22 @@
 import { useDispatch } from "react-redux";
 import { updateChronoValues } from "../../features/chrono";
+import { AppDispatch } from "../../store"; // Importer le typage de dispatch
+
+interface UpdateTimeButtonProps {
+  sign: "+" | "-"; // Typage strict pour sign
+  type: "session" | "pause"; // Typage strict pour type
+}
 
 export default function UpdateTimeButton({
   sign,
   type,
-}: {
-  sign: string;
-  type: string;
-}) {
-  const dispatch = useDispatch();
+}: UpdateTimeButtonProps) {
+  const dispatch = useDispatch<AppDispatch>(); // Typage strict pour le dispatch
+
   function handleUpdate() {
     dispatch(updateChronoValues({ type, value: sign === "+" ? 60 : -60 }));
   }
+
   return (
     <button
       onClick={handleUpdate}
