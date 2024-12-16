@@ -15,8 +15,11 @@ function App() {
 
   const chronoValues = useSelector((state: RootState) => state.chrono);
   return (
-    <div className="bg-slate-700 text-slate-100 pt-20 w-full min-h-screen">
-      <div className="max-w-xl mx-auto border border-slate-500 rounded p-10">
+    <div className="bg-pomodoro-bg bg-cover text-white shadow-lg text-g pt-20 w-full min-h-screen">
+      <div
+        className="max-w-xl mx-auto 
+       border-slate-500 p-10 bg-black/50 text-white px-4 py-2 rounded text-lg"
+      >
         <h1 className="text-center mb-8 text-3xl">Pomodoro App</h1>
         <div className="flex justify-center mb-8">
           <div className="mr-10">
@@ -45,25 +48,15 @@ function App() {
             {getFormatedValue(chronoValues.displayedValue.display)}
           </span>
         </p>
-        <p className="mb-10 text-center">
-          Passed cycle(s) : {chronoValues.cycles}
-        </p>
-
-        <ToggleButton />
+        <div className="flex flex-col justify-center items-center">
+          <p className="mb-5 text-center">
+            Passed cycle(s) : {chronoValues.cycles}
+          </p>
+          <ToggleButton />
+        </div>
       </div>
     </div>
   );
 }
 
 export default App;
-
-//Explicite
-
-//Implicite (à privilégier)
-
-/** En typeScript lors de l'initialisation, on veut préciser 3 infos
- * (précédé d'un marqueur) :
- * 1)Le NOM de la variable précédé de CONST / LET (DEFINITION)
- * 2)Le TYPE de la variable précédé de ":" (TYPAGE)
- * 3)La VALEUR de la variable précédé de "=" (ASSIGNATION)
- */

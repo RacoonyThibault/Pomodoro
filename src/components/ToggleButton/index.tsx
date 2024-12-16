@@ -19,7 +19,7 @@ export default function ToggleButton() {
   return (
     <button
       onClick={toggleChrono}
-      className="px-4 py-2 text-slate-800 flex justify-center items-center mx-auto bg-slate-300 hover:bg-slate-200"
+      className=" text-white px-4 py-2 text-lg w-20  border-black border-1 flex justify-center items-center   hover:bg-slate-200 rounded-md"
     >
       <span className="mr-3 text-lg">
         {chronoValues.isPlaying ? "reset" : "start"}
