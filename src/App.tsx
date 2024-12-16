@@ -15,9 +15,9 @@ function App() {
 
   const chronoValues = useSelector((state: RootState) => state.chrono);
   return (
-    <div className="bg-pomodoro-bg bg-cover text-white shadow-lg text-g pt-20 w-full min-h-screen">
+    <div className="bg-pomodoro-bg bg-cover bg-center sm:bg-contain md:bg-cover lg:bg-fixed w-full min-h-screen flex items-center">
       <div
-        className="max-w-xl mx-auto 
+        className="w-full max-w-xl mx-auto  
        border-slate-500 p-10 bg-black/50 text-white px-4 py-2 rounded text-lg"
       >
         <h1 className="text-center mb-8 text-3xl">Pomodoro App</h1>
